@@ -1,0 +1,6 @@
+@LoggingHTTPCalls_HostAddress = http://localhost:5298
+
+GET {{LoggingHTTPCalls_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

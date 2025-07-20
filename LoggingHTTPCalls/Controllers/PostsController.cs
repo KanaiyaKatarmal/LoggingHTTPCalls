@@ -14,13 +14,13 @@ using Microsoft.AspNetCore.Mvc;
                 _postService = postService;
             }
 
-            // GET: api/posts
-            [HttpGet]
-            public async Task<IActionResult> GetPosts()
-            {
-                await _postService.CallExternalApiAsync();
-                return Ok("Posts fetched successfully.");
-            }
-
+        // GET: api/posts
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var result = await _postService.GetPostsAsync();
+            return Content(result, "application/json");
         }
+
     }
+}

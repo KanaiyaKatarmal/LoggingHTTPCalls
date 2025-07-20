@@ -9,10 +9,11 @@
             _httpClient = httpClientFactory.CreateClient("MyClient");
         }
 
-        public async Task CallExternalApiAsync()
+        public async Task<string> GetPostsAsync()
         {
             var response = await _httpClient.GetAsync("https://jsonplaceholder.typicode.com/posts");
-            // Handle response...
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsStringAsync();
         }
     }
 }
